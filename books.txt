@@ -1,0 +1,77 @@
+// The Library
+It contains a few fake books.
+
+// Title: Compiling Assembly
+What's machine code?
+The answer: Here's a bit:
+MZ       ÿÿ  ¸       @                                   à   º ´	Í!¸LÍ!This program cannot be run in DOS mode.
+
+$       uºã1ÛF1ÛF1ÛF%°ˆG0ÛF%°ŽG0ÛF%°‰G%ÛF%°ŒG8ÛF1ÛŒFoÛF%°„G0ÛF%°rF0ÛF%°G0ÛFRich1ÛF        PE  L šb…³        à  "         €*      @    @       
+   
+What's that?
+
+Want more? Sure:
+   
+        €     þ±   @Á                            tQ  d    `  ø                   p  8  ð  T                             ¬            P  p                          .text          "                    `.data   p   @      &              @  À.idata  l
+
+Sure looks like some gibberish.
+
+Answer: Not gibberish. It's gibberish to you but not gibberish
+to the machine. Welcome to the land of binary code.
+
+So every program on my computer is gibberish?
+
+Answer: To you, yes. That --^ was doskey.com. This is cmd.exe:
+MZ       ÿÿ  ¸       @                                   ð   º ´	Í!¸LÍ!This program cannot be run in DOS mode.
+
+$       Û+ÕlŸJ»?ŸJ»?ŸJ»?–2(?ÙJ»?‹!¸>™J»?‹!¿>‡J»?ŸJº?¹K»?‹!º>šJ»?‹!¾>–J»?‹!µ>·J»?‹!D?žJ»?‹!¹>žJ»?RichŸJ»?                PE  L ~Øø        à  Â  Š      k     à   @       
+   
+   
+             ìj  @Á    Ð                      È¤ ø   à ø„                   p ð%   5  T                           Ð  ¬              Ä  œÍ €                   .text   À     Â                 
+
+I see a bit: "This program cannot be run in DOS mode." Is this
+for me?
+
+Answer: Alas, no. This is for warnings when starting with DOS:
+"This program cannot be run in DOS mode." gets printed out to
+the screen. That's not code, it's a string.
+
+Cotton? Wool?
+
+Answer: NO! This is a string in programming, which is a block of
+text.
+
+THEN NOW, HOW DO I WRITE COMPUTER PROGRAMS? LEARN MACHINE GIBBERISH?
+
+Answer: No! You don't have to! Does this:
+; start of code
+; this is a hello world.
+    global  _main
+    extern  _printf
+
+    section .text
+_main:
+    push    message
+    call    _printf
+    add     esp, 4
+    ret
+message:
+    db  'Hello, World', 10, 0
+Look better?
+
+Better than "MZ       ÿÿ  ¸       @                                   ð   º ´	Í!¸LÍ!This program cannot be run in DOS mode."
+
+But how about print('hello world')? That's easier!
+
+Answer: Easy for you, harder for the Python authors. What's happening:
+1. The interpreter reads the file.
+2. 'hello world' is converted into binary. 0101010100101010101!
+3. The binary is loaded into your RAM. So it now looks like this:
+01101000 01100101 01101100 01101100 01101111 00100000 01110111 01101111 01110010 01101100 01100100
+4. The machine prints it out, so you get
++---------------------+
+| hello world         |
+|                     |
+|                     |
++---------------------+
+and the program exits.
